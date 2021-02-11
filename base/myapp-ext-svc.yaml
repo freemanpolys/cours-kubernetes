@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-02-11T05:45:39Z"
+  labels:
+    app: myapp
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kube-vpnkit-forwarder
+    operation: Update
+    time: "2021-02-11T05:45:39Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels: {}
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2021-02-11T05:45:39Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:app: {}
+      f:spec:
+        f:selector:
+          f:app: {}
+    manager: kubectl-edit
+    operation: Update
+    time: "2021-02-11T05:46:54Z"
+  name: myapp-ext
+  namespace: default
+  resourceVersion: "243795"
+  selfLink: /api/v1/namespaces/default/services/myapp-ext
+  uid: 1690fbc5-608d-47c0-af0e-4b0eb9231da1
+spec:
+  clusterIP: 10.107.66.158
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: 80-80
+    nodePort: 30340
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: myapp
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
