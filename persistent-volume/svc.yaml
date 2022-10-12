@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: task-pv-svc
+spec:
+  selector:
+    app: task-pv
+  ports:
+  # Default port used by the image
+  - port: 80
